@@ -29,7 +29,7 @@ class Program
         // to get the len of the set of numbers 
         int length = numbers.Count;
         
-        //Console.WriteLine(string.Join(", ", numbers)); to get the list of the number
+        //Console.WriteLine(string.Join(", ", numbers)); to print the list of the number
         // sum total of the set 
         int total = 0;
         foreach (int num in numbers)
@@ -40,6 +40,20 @@ class Program
 
         float average = (float)total / length;
         Console.WriteLine($"Average of the set is {average}");
+
+        // To find the max
+        
+        int max = numbers[0];
+
+        foreach (int number in numbers)
+        {
+            if (number > max)
+            {
+                // if this number is greater than the max, we have found the new max!
+                max = number;
+            }
+        }
+        Console.WriteLine($"The max is: {max}");
 
         // lowest positive number
         int? smallestPositive = null; //This means we haven't stored any num yet,
