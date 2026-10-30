@@ -29,16 +29,13 @@ class Program
         }
         else if (percent >= 60)
         {
-            letter = "B";
-        }
-        else if (percent >= 50)
-        {
             letter = "D";
         }
         else
         {
             letter = "F";
         }
+        
 
         // Determine the sign (+, -, or none)
         string sign = "";
