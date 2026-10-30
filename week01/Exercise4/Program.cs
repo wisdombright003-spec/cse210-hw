@@ -7,26 +7,28 @@ using System.Runtime.InteropServices;
 class Program
 {
     static void Main(string[] args)
-    {
+    {    
+        
         Console.WriteLine("Enter a list of numbers, type 0 when finished.");
-        // this forms the list
+
+        //  Create the list
         List<int> numbers = new List<int>();
         
-        
-        while (true)
+        //  Keep adding numbers to the list
+        while (true) // Keep asking the user for number until he or she quit
         {
-            Console.Write("Enter a number: ");
+            Console.Write("Enter a number: ");  
             string number = Console.ReadLine();
             float response = float.Parse(number);
             if (response == 0)
             {
                 break;
             }
-            // this sends the number to form the list
-            numbers.Add((int)response);  
+            numbers.Add((int)response);  // Append the numbers to the list
             
         } 
-        // to get the len of the set of numbers 
+
+        // 1. Sum the total
         int length = numbers.Count;
         
         //Console.WriteLine(string.Join(", ", numbers)); to print the list of the number
@@ -38,24 +40,24 @@ class Program
         } 
         Console.WriteLine($"The sum is: {total}");
 
+        // Part 2. 
         float average = (float)total / length;
         Console.WriteLine($"Average of the set is {average}");
 
-        // To find the max
-        
+        // Part 3 the largest number
         int max = numbers[0];
-
         foreach (int number in numbers)
         {
             if (number > max)
             {
-                // if this number is greater than the max, we have found the new max!
+                // if this number is greater than the largest, we have found the new max!
                 max = number;
             }
         }
-        Console.WriteLine($"The max is: {max}");
+        Console.WriteLine($"The largest number is : {max}");
 
-        // lowest positive number
+
+        // Part 4 lowest positive number
         int? smallestPositive = null; //This means we haven't stored any num yet,
                           // int? is a shorthand for nyllable: an integer that can also hold null, A regular int must,
                           // always have a value (it defaults to 0). Adding ? lets it represent "no value
