@@ -16,7 +16,7 @@ class Program
         while (playAgain)
         {
             Random randomGenerator = new Random();
-            int number = randomGenerator.Next(1,100);
+            int number = randomGenerator.Next(1,101);
 
             int guess = -1; // This guarantee the while loop triggers
             int guessCount = 0;
