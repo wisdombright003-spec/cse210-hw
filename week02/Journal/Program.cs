@@ -16,8 +16,8 @@ class Program
         job2._endYear = 2026;
         job2._startYear = 2010;
 
-        job1.DisplayJoDetails();
-        job2.DisplayJoDetails();
+        //job1.DisplayJoDetails();
+        //job2.DisplayJoDetails();
 
         Resume myResume = new Resume();
         myResume._givenName = "Wisdom Sunday";
