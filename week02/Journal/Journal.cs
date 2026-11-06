@@ -32,7 +32,7 @@ public class Journal
             {
                 outputFile.WriteLine(entry.GetAsString());
             }
-            Console.WriteLine($"File saved at: {Path.GetFullPath(filename )}");
+            //Console.WriteLine($"File saved at: {Path.GetFullPath(filename )}");
         }
 
     }
