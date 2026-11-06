@@ -1,36 +1,114 @@
+// Exceeding Requirements: 
+// 1. Added an automated file management system that detects existing journal files, 
+//    lists them for easy selection, and automatically remembers the active filename 
+//    for subsequent saves without repeatedly prompting the user.
+// 2. Implemented CSV file formatting so journal entries can be opened and viewed cleanly in Excel.
+
 using System;
 
 class Program
 {
     static void Main(string[] args)
     {
-        Job job1 = new Job();
-        job1._jobTitle = "Software Engineer";
-        job1._company = "Microsoft";
-        job1._endYear = 2022;
-        job1._startYear = 2002;
+        PromptGenerator promptGenerator = new PromptGenerator();
+        Journal myjournal = new Journal();
+        string currentfilename = "";
 
-        Job job2 = new Job();
-        job2._jobTitle = "Audio Engineer";
-        job2._company = "Apple";
-        job2._endYear = 2026;
-        job2._startYear = 2010;
+        string choice = "";
+        while (choice != "5")
+        {
+            Console.WriteLine("\nJournal Menu");
+            Console.WriteLine("1. Write a new entry");
+            Console.WriteLine("2. Display the journal");
+            Console.WriteLine("3. Save the journal");
+            Console.WriteLine("4. Load the journal");
+            Console.WriteLine("5. Quit");
+            Console.Write("Choose an option: ");
 
-        //job1.DisplayJoDetails();
-        //job2.DisplayJoDetails();
+           choice = Console.ReadLine() ;  
+           if (choice == "1")
+            {
+                Write(myjournal, promptGenerator);
+            }
 
-        Resume myResume = new Resume();
-        myResume._givenName = "Wisdom Sunday";
+           else if (choice == "2")
+            {
+                myjournal.DisplayAll();
+            }
 
-        //. Add the two jobs you created earlier, to the list of jobs in the resume object.
-        myResume._jobs.Add(job1);
-        myResume._jobs.Add(job2);
+           else if (choice == "3")
+            {
+                Save(myjournal, ref currentfilename);
+            }
 
-        
+            else if (choice == "4")
+            {
+                Load( myjournal,  ref currentfilename);
+            }
 
-        // Verify that you can access and display the first job title using dot notation similar to myResume._jobs[0]._jobTitle .
-        //Console.WriteLine(myResume._jobs[0]._jobTitle);
+            else
+            {
+                 Console.WriteLine("Invalid option");
+            }
+        }
+        Console.WriteLine("Goodbye!");
 
-        myResume.DisplayResume();
+        // entry write function
+        static void Write(Journal myjournal, PromptGenerator promptGenerator)
+        {
+            string randomprompt = promptGenerator.GetRandomPrompt();
+
+
+            Console.WriteLine(randomprompt);
+            Console.Write("> ");
+            string response = Console.ReadLine();
+
+            DateTime theCurrentTime = DateTime.Now;
+            string currentDate = theCurrentTime.ToString("yyyy-MM-dd HH:mm:ss");
+            Entry newEntry = new Entry(currentDate, randomprompt, response);
+            myjournal.AddEntry(newEntry);
+            //myjournal.DisplayAll();
+        }
+
+        static void Save(Journal myjournal, ref string currentfilename)  // use ref to remember the filenamefor the next time 
+        {
+            string filename = "";
+
+            // Check if it the first time 
+            if (string.IsNullOrEmpty(currentfilename))
+            {
+                Console.Write("Name the file: ");
+                currentfilename = Console.ReadLine() + ".csv";
+                filename = currentfilename;
+            }
+            else
+            {
+                // Atomatically use the existing journal file
+                filename = currentfilename;
+            }
+            // Save the journal to the selected file
+            myjournal.SaveToFile(filename);
+        }
+
+        static void Load(Journal myjournal, ref string currentfilename)
+        {
+            while (string.IsNullOrWhiteSpace(currentfilename) || 
+            !File.Exists(currentfilename)) // while the filename is empty or don't exit loop
+            {
+                Console.Write("Enter journal name: ");
+                currentfilename = Console.ReadLine() + ".csv";
+                if (!File.Exists(currentfilename))
+                {
+                    Console.WriteLine("File do not exist");
+                }
+            }
+            List<Entry> savedEntries = myjournal.ReadFromFile(currentfilename);
+            Console.WriteLine("Reading file........");
+            foreach (Entry entry in savedEntries)
+            {
+                entry.Display();
+            }
+        }
     }
+        
 }
