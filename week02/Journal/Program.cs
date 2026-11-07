@@ -46,12 +46,16 @@ class Program
                 Load( myjournal,  ref currentfilename);
             }
 
+            else if (choice == "5")
+            {
+                Console.WriteLine("Goodbye!");
+            }
+            
             else
             {
                  Console.WriteLine("Invalid option");
             }
-        }
-        Console.WriteLine("Goodbye!");
+        } 
 
         // entry write function
         static void Write(Journal myjournal, PromptGenerator promptGenerator)
