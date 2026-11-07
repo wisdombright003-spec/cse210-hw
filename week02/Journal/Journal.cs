@@ -25,7 +25,7 @@ public class Journal
     { 
         Console.WriteLine("Saving file.......");
        // Open the file for writing
-       using (StreamWriter outputFile = new StreamWriter(filename, true))
+       using (StreamWriter outputFile = new StreamWriter(filename))
         {
             // visit each Entry object on the list
             foreach (Entry entry in _entries)
@@ -41,6 +41,8 @@ public class Journal
     {
         // Create an empty list to hold the Entry objects read from the file
         List<Entry> _entries = new List<Entry>();
+
+        _entries.Clear();
 
         // Read all file lines into an arry of strings.
         string[] lines = System.IO.File.ReadAllLines(filename);
