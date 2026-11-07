@@ -40,7 +40,7 @@ public class Journal
     public  List<Entry> ReadFromFile(string filename)
     {
         // Create an empty list to hold the Entry objects read from the file
-        List<Entry> _entries = new List<Entry>();
+        //List<Entry> _entries = new List<Entry>();
 
         _entries.Clear();
 
