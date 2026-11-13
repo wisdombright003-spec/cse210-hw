@@ -46,6 +46,13 @@ public class Scripture
         Word selectedWord = visibleWords[index]; //This retrieves the Word object at the randomly selected position and stores it in selectedWord.
         selectedWord.Hide();  
     }
+    public void ResetWords()
+    {
+        foreach (Word words in _words)
+        {
+            words.Show();
+        }
+    }
 
     public string GetScriptureDisplayText()
     {

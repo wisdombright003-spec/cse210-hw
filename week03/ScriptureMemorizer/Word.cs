@@ -14,6 +14,11 @@ public class Word
         _isHidden = true;
     }
 
+    public void Show()  // this method turn ishidden to true
+    {
+        _isHidden = false;
+    }
+
     public bool GetIsHidden() // this method gets the state of the state of ishidden
     {
         return _isHidden;

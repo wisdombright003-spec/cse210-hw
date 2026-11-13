@@ -19,6 +19,14 @@ public class ScriptureLibrary
         _scripturesLibrary.Add(new Scripture(
             new Reference("Philippians", 4, 13),"I can do all things through Christ which strengtheneth me." ));
         
+        _scripturesLibrary.Add(new Scripture(
+            new Reference("Mormon", 9, 21, 22),"Behold, I say unto you that whoso believeth in Christ," + 
+            "doubting nothing, whatsoever he shall ask the Father in the name of Christ it shall be granted him;" +
+            "and this promise is unto all, even unto the ends of the earth. " + 
+            "For behold, thus said Jesus Christ, the Son of God, unto his disciples who should tarry, yea, " +
+            "and also to all his disciples, in the hearing of the multitude: Go ye into all the world, " +
+            "and preach the gospel to every creature;" ));
+        
     }
     public Scripture GetRandomScripture()
     {

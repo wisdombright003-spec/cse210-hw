@@ -1,3 +1,7 @@
+// Creativity beyond requirements:
+// This program supports a library of scriptures,
+// allows users to add new scriptures, and supports
+// saving and loading scriptures from files.
 using System;
 using System.Security.Cryptography.X509Certificates;
 
@@ -29,7 +33,9 @@ class Program
             choice = Console.ReadLine();  
             if (choice == "1")
             {
-                MemorizeARandomScriptures(scripture);
+                Scripture randomscripture = library.GetRandomScripture();
+                scripture.ResetWords();
+                MemorizeARandomScriptures(randomscripture);
             }
             else if (choice == "2")
             {
