@@ -62,12 +62,13 @@ class Program
             {
                 Console.WriteLine(scripture.GetScriptureDisplayText());
                 Console.WriteLine(" ");
-                Console.WriteLine("Press enter to continue or quit to exit ");
-                string input = Console.ReadLine();
                 if (scripture.IsCompletelyHidden()) //This checks whether every word has been hidden.
                 {
+                    Console.WriteLine("Congratulations! You memorized the scripture ");
                     break; 
                 }
+                Console.WriteLine("Press enter to continue or quit to exit ");
+                string input = Console.ReadLine();
                 if  (input == "quit")
                 {
                    break;
@@ -83,6 +84,7 @@ class Program
             foreach (Scripture scriptures in savedScriptures)
             {
                 Console.WriteLine(scriptures.GetScriptureDisplayText());
+                Console.WriteLine(" ");
             }
         }
 
