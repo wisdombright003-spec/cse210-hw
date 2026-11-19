@@ -5,7 +5,7 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("------------ONLINE OEDERS---------------");
-        // Order 1 (USA Address - tests domestic shipping logic if applicable)
+        // Order 1 (USA Address)
         Order order2 = new Order(new Customer("Sarah Jenkins", new Address("742 Evergreen Terrace", "Springfield", "IL", "USA")));
         order2.AddOrders(new Product("Wireless Mouse", "P101", 25, 1));
         order2.AddOrders(new Product("Mechanical Keyboard", "P102", 80, 1));
