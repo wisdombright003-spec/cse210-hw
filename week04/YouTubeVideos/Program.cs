@@ -42,5 +42,5 @@ class Program
 
         // Display everything
         youtube.DisplayVideo();
-            }
-        }
+    }
+}
