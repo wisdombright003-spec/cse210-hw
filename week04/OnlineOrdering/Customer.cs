@@ -7,12 +7,12 @@ public class Customer
         _name = name;
         _address = address;
     }
-    public string getName()
+    public string GetName()
     {
         return _name;
     }
 
-    public string getAddress()
+    public string GetAddress()
     {
         return _address.DisplayAddress();
     }

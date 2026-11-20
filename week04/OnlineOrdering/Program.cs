@@ -4,6 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
+        Console.WriteLine(" ");
         Console.WriteLine("------------ONLINE OEDERS---------------");
         // Order 1 (USA Address)
         Order order2 = new Order(new Customer("Sarah Jenkins", new Address("742 Evergreen Terrace", "Springfield", "IL", "USA")));

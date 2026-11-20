@@ -56,7 +56,7 @@ public class Order
 
     public string ShippingLabel()
     {
-        return $"               Name: {_customer.getName()}\n               {_customer.getAddress()}";
+        return $"               Name: {_customer.GetName()}\n               {_customer.GetAddress()}";
     }
 
     public void DisplayShippingLabel(string shippingLabel)
