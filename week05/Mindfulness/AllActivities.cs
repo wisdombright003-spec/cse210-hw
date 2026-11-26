@@ -2,6 +2,7 @@ public class AllActivities
 {
     public void Main()
     {
+        DateTime startTime =DateTime.Now;
         while (true)
         {
             Console.Clear();
@@ -43,6 +44,9 @@ public class AllActivities
                 Console.WriteLine("Invalid input");
             }
         }
+        DateTime endTime = DateTime.Now;
+        TimeSpan totalTime = endTime - startTime;
+        Console.WriteLine($"Total time spent: {totalTime.Minutes} minutes and {totalTime.Seconds} seconds.");
     }
 
 
