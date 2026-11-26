@@ -1,9 +1,12 @@
+// Exceeded the requirements by implementing file saving and loading
+// to preserve listing activity responses between program sessions.
 using System;
 
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello World! This is the Mindfulness Project.");
+        AllActivities activities = new AllActivities();
+        activities.Main();
     }
 }
