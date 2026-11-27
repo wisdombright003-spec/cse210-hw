@@ -47,6 +47,10 @@ public class ReflectingActivity: Activity
             Console.Write("Loading");
             DotAnimation(); Console.WriteLine();
             Console.Clear();
+            if (_remainingQustions.Count == 0)
+            {
+                _remainingQustions = new List<string>(_questions); // refill the question list when it is empty
+            }
 
             // Only one timed loop for the question
             while (DateTime.Now < endTime)

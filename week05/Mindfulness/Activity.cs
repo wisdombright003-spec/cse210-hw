@@ -64,7 +64,7 @@ public class Activity
         for (int i = seconds; i > 0; i--)
         {
             Console.Write(i);
-            Thread.Sleep(1000); 
+            Thread.Sleep(500); 
             Console.Write("\b \b");
         }
     }
