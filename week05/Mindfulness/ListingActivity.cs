@@ -25,7 +25,7 @@ public class ListingActivity: Activity
         ShowCountDown(5); Console.WriteLine();
         GetListFromUser();
 
-        _count = _prompts.Count;
+        _count = answers.Count;
         Console.WriteLine($"You listed {_count} items");
         DisplayEndingMessage();
         SaveToFile();
