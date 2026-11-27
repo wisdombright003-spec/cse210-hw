@@ -69,18 +69,18 @@ public class ReflectingActivity: Activity
 
     }
 
-    public string GetRandomPrompt()
+    private string GetRandomPrompt()
     {
         //Random randomGenerator = new Random();
         int index = randomGenerator.Next(0, _prompts.Count);
         return $"--{_prompts[index]}--";
     }
-    public void DisplayPrompt(string prompt)
+    private void DisplayPrompt(string prompt)
     {
         Console.WriteLine(prompt);
     }
 
-    public string GetRandomQuestion()
+    private string GetRandomQuestion()
     {
         if (_remainingQustions.Count == 0) //check how many questions are left then stop when there is none
         {

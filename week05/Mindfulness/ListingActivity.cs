@@ -2,7 +2,7 @@ public class ListingActivity: Activity
 {
     private int _count;
     private List<string> _prompts;
-    List<string> answers= new List<string>();
+    private List<string> answers= new List<string>();
 
     public ListingActivity(string name, string description, int duration): base(name, description, duration)
     {
@@ -32,14 +32,14 @@ public class ListingActivity: Activity
 
     }
 
-    public void GetRandomPrompt()
+    private void GetRandomPrompt()
     {
         Random randomGenerator = new Random();
         int index = randomGenerator.Next(0, _prompts.Count);
         Console.WriteLine($"--{_prompts[index]}--");
     }
 
-    public List<string> GetListFromUser()
+    private List<string> GetListFromUser()
     {
        // List<string> answers = new List<string>();
 
@@ -55,7 +55,7 @@ public class ListingActivity: Activity
        return answers;
     }
 
-    public void SaveToFile()
+    private void SaveToFile()
     { 
        string filename = "Listing_activity.txt";
        using (StreamWriter outputFile = new StreamWriter(filename , true))
@@ -66,7 +66,6 @@ public class ListingActivity: Activity
                 outputFile.WriteLine(x);
             }
         }
-
     }
 
     public  void ReadFromFile()
@@ -82,5 +81,4 @@ public class ListingActivity: Activity
             Console.WriteLine(answer);
         }
     }
-
 }

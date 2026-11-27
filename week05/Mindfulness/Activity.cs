@@ -4,13 +4,13 @@ public class Activity
     private string _description;
     protected int _duration;
 
-    public Activity(string name, string description, int duration)
+    protected Activity(string name, string description, int duration)
     {
         _name = name;
         _description = description;
         _duration = duration;
     }
-    public void DisplayStartingMessage()
+    protected void DisplayStartingMessage()
     {
         Console.WriteLine();
         Console.WriteLine($"Welcome to the {_name} Activity");
@@ -26,7 +26,7 @@ public class Activity
         ShowSpinnner(5);
         
     }
-    public void DisplayEndingMessage()
+    protected void DisplayEndingMessage()
     {
         Console.WriteLine(" ");
         Console.WriteLine("Well done!!");
@@ -35,7 +35,7 @@ public class Activity
         ShowSpinnner(2);
 
     }
-    public void ShowSpinnner(int seconds)
+    protected void ShowSpinnner(int seconds)
     {
         DateTime startTime =DateTime.Now;
         DateTime endTime = startTime.AddSeconds(seconds);
@@ -59,7 +59,7 @@ public class Activity
             }   
         }
     }
-    public void ShowCountDown(int seconds)
+    protected void ShowCountDown(int seconds)
     {
         for (int i = seconds; i > 0; i--)
         {
@@ -68,24 +68,8 @@ public class Activity
             Console.Write("\b \b");
         }
     }
-    protected void ShowBreathingAnimation(bool breatheIn)
-    {
-        int size = breatheIn ? 1 : 10;
-        int end = breatheIn ? 10 : 1;
-        int step = breatheIn ? 1 : -1;
 
-        for (int i = size, count = 0;
-            breatheIn ? i <= end : i >= end;
-            i += step, count++)
-        {
-            Console.Write("\r" + new string('O', i).PadRight(10));
-            Thread.Sleep(100 + count * 70);
-        }
-
-        Console.WriteLine();
-    }
-
-    public void DotAnimation(int seconds = 5)
+    protected void DotAnimation(int seconds = 5)
     {
         DateTime startTime =DateTime.Now;
         DateTime endTime = startTime.AddSeconds(seconds);
